@@ -8,7 +8,7 @@
 
 
 # Run application
-- `./gradlew -t :proj-js:run` will run development application at https://localhost:8080 with live reload:
+- `gradlew -t :proj-js:run` will run development application at https://localhost:8080 with live reload:
   - Run from IDE: --server.port=8081 to start https://localhost:8081
   - Webpack dev server will be started at the front https://localhost:8080            
   - Webpack dev server will call server for everything expect `*.js` files.     

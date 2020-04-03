@@ -9,12 +9,7 @@ import kotlinx.css.marginBottom
 import kotlinx.css.padding
 import kotlinx.css.paddingLeft
 import kotlinx.css.px
-import model.PostWithComments
-import model.User
 import react.*
-import services.CommentsService
-import services.PostWithCommentsService
-import services.UserService
 import styled.StyleSheet
 import styled.css
 import styled.styledA
@@ -38,8 +33,8 @@ interface ApplicationProps : RProps {
 }
 
 class ApplicationState : RState {
-    var postWithComments: List<PostWithComments> = emptyList()
-    var users: List<User> = emptyList()
+//    var postWithComments: List<PostWithComments> = emptyList()
+//    var users: List<User> = emptyList()
 }
 
 class ApplicationComponent : RComponent<ApplicationProps, ApplicationState>() {
@@ -51,26 +46,26 @@ class ApplicationComponent : RComponent<ApplicationProps, ApplicationState>() {
         get() = props.coroutineScope.coroutineContext
 
     override fun componentDidMount() {
-        val postWithCommentsService = PostWithCommentsService(coroutineContext)
-        val userService = UserService(coroutineContext)
-
-        props.coroutineScope.launch {
-            val posts = postWithCommentsService.getPostsWithComments()
-
-            setState {
-                postWithComments += posts
-            }
-
-            // Parallel coroutines execution example
-            val userIds = posts.map { it.post.userId }.toSet()
-            val users = userIds
-                .map { async { userService.getUser(it) } }
-                .map { it.await() }
-
-            setState {
-                this.users = users
-            }
-        }
+//        val postWithCommentsService = PostWithCommentsService(coroutineContext)
+//        val userService = UserService(coroutineContext)
+//
+//        props.coroutineScope.launch {
+//            val posts = postWithCommentsService.getPostsWithComments()
+//
+//            setState {
+//                postWithComments += posts
+//            }
+//
+//            // Parallel coroutines execution example
+//            val userIds = posts.map { it.post.userId }.toSet()
+//            val users = userIds
+//                .map { async { userService.getUser(it) } }
+//                .map { it.await() }
+//
+//            setState {
+//                this.users = users
+//            }
+//        }
     }
 
     override fun RBuilder.render() {
@@ -87,7 +82,7 @@ class ApplicationComponent : RComponent<ApplicationProps, ApplicationState>() {
                         glyph = jetbrainsLogo
                     }
                 }
-                +"hello Mable"
+                +"hello world!"
             }
         }
 
@@ -95,37 +90,7 @@ class ApplicationComponent : RComponent<ApplicationProps, ApplicationState>() {
             css {
                 +ApplicationStyles.wrapper
             }
-
-            state.postWithComments.map { postWithComments ->
-                styledDiv {
-                    css {
-                        +ApplicationStyles.post
-                    }
-                    postView(
-                        postWithComments,
-                        state.users.find { it.id == postWithComments.post.userId },
-                        onMoreComments = {
-                            onMoreComment(postWithComments.post.id)
-                        })
-                }
-            }
-        }
-    }
-
-    private fun onMoreComment(postId: Int) {
-        val commentsService = CommentsService(coroutineContext)
-        val post = state.postWithComments.find { it.post.id == postId }
-
-        if (post != null) {
-            props.coroutineScope.launch {
-                val comments = commentsService.getComments(postId.toString(), Random.nextInt(4))
-
-                setState {
-                    postWithComments = postWithComments.map {
-                        if (it != post) it else PostWithComments(it.post, it.comments + comments)
-                    }
-                }
-            }
+            +"foo"
         }
     }
 }
