@@ -19,13 +19,6 @@ plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm'
     id 'kotlinx-serialization'
-
-//    id 'kotlin-spring'
-//    id 'org.springframework.boot'
-//    id 'io.spring.dependency-management'
-
-//    id 'application'
-//    id 'distribution'
 }
 
 apply plugin: 'kotlin-spring'
@@ -75,7 +68,9 @@ dependencies {
 //}
 
 processResources {
-    from project(":proj-js").tasks.getByName('browserProductionWebpack').destinationDirectory
+    from(project(":proj-js").tasks.getByName('browserProductionWebpack').destinationDirectory) {
+        into "public"
+    }
 
     //todo: bug?
     dependsOn project(":proj-js").tasks.getByName('browserProductionWebpack')
