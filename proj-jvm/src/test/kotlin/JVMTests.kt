@@ -1,21 +1,6 @@
-import kotlinx.serialization.Serializable
 import org.junit.Test
-import rpc.RPCService
 import kotlin.test.assertEquals
 
-
-@Serializable
-class TestItem
-
-class TestService : RPCService {
-    fun getItem(): TestItem {
-        return TestItem()
-    }
-
-    fun getItems(): List<TestItem> {
-        return emptyList()
-    }
-}
 
 class RPCTests {
     @Test

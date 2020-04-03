@@ -67,7 +67,7 @@ class ApplicationComponent : RComponent<ApplicationProps, ApplicationState>() {
                         paddingLeft = 48.px
                     }
                 }
-                +"hello world!"
+                +"hello world!!!"
             }
         }
 
