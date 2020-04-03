@@ -1,22 +1,13 @@
 package view
 
-import contrib.ringui.header.ringHeader
-import contrib.ringui.header.ringLogo
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
-import kotlinx.css.marginBottom
-import kotlinx.css.padding
-import kotlinx.css.paddingLeft
-import kotlinx.css.px
+import kotlinx.css.*
 import react.*
+import react.dom.div
 import styled.StyleSheet
 import styled.css
 import styled.styledA
 import styled.styledDiv
-import kotlin.random.Random
-
-val jetbrainsLogo = kotlinext.js.require("@jetbrains/logos/jetbrains/jetbrains-simple.svg")
 
 private object ApplicationStyles : StyleSheet("ApplicationStyles", isStatic = true) {
     val wrapper by css {
@@ -69,17 +60,11 @@ class ApplicationComponent : RComponent<ApplicationProps, ApplicationState>() {
     }
 
     override fun RBuilder.render() {
-        ringHeader {
+        div {
             styledA("/") {
                 css {
                     specific {
                         paddingLeft = 48.px
-                    }
-                }
-                ringLogo {
-                    attrs {
-                        className = "logo"
-                        glyph = jetbrainsLogo
                     }
                 }
                 +"hello world!"
