@@ -1,5 +1,5 @@
 # Work in progress
-#########
+######
 
 ## Features
 - Spring Boot on server using Kotlin

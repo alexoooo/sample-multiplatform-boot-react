@@ -8,14 +8,13 @@ pluginManagement {
     }
 
     repositories {
-        maven { url 'https://dl.bintray.com/kotlin/kotlin-dev' }
-        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+        maven { setUrl("https://dl.bintray.com/kotlin/kotlin-dev") }
+        maven { setUrl("https://dl.bintray.com/kotlin/kotlin-eap") }
         mavenCentral()
-        maven { url 'https://plugins.gradle.org/m2/' }
+        maven { setUrl("https://plugins.gradle.org/m2/") }
     }
 }
-rootProject.name = 'proj'
 
-include 'proj-common'
-include 'proj-js'
-include 'proj-jvm'
+rootProject.name = "proj"
+
+include("proj-common", "proj-js", "proj-jvm")
