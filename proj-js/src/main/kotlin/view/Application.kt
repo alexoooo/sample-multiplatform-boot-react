@@ -36,28 +36,6 @@ class ApplicationComponent : RComponent<ApplicationProps, ApplicationState>() {
     private val coroutineContext
         get() = props.coroutineScope.coroutineContext
 
-    override fun componentDidMount() {
-//        val postWithCommentsService = PostWithCommentsService(coroutineContext)
-//        val userService = UserService(coroutineContext)
-//
-//        props.coroutineScope.launch {
-//            val posts = postWithCommentsService.getPostsWithComments()
-//
-//            setState {
-//                postWithComments += posts
-//            }
-//
-//            // Parallel coroutines execution example
-//            val userIds = posts.map { it.post.userId }.toSet()
-//            val users = userIds
-//                .map { async { userService.getUser(it) } }
-//                .map { it.await() }
-//
-//            setState {
-//                this.users = users
-//            }
-//        }
-    }
 
     override fun RBuilder.render() {
         div {
@@ -75,7 +53,7 @@ class ApplicationComponent : RComponent<ApplicationProps, ApplicationState>() {
             css {
                 +ApplicationStyles.wrapper
             }
-            +"foo"
+            +"bar!!!!"
         }
     }
 }
