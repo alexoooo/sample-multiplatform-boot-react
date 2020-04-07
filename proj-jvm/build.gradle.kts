@@ -2,37 +2,13 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
 
-//buildscript {
-//    ext {
-//        // TODO: upgrade once bug is fixed:
-//        //  https://github.com/spring-projects/spring-framework/issues/23961
-////        springBootVersion = '2.2.0.RELEASE'
-//        springBootVersion = '2.2.6.RELEASE'
-//    }
-//    repositories {
-//        mavenCentral()
-//    }
-//    dependencies {
-//        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-//        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
-//    }
-//}
-
 
 plugins {
-//    id 'java'
-//    id 'org.jetbrains.kotlin.jvm'
-//    id 'kotlinx-serialization'
-
     id("org.springframework.boot") version "2.2.6.RELEASE"
     id("io.spring.dependency-management") version "1.0.9.RELEASE"
     kotlin("jvm") //version "1.3.71"
     kotlin("plugin.spring") version "1.3.71"
 }
-
-//apply plugin: 'kotlin-spring'
-//apply plugin: 'org.springframework.boot'
-//apply plugin: 'io.spring.dependency-management'
 
 
 repositories {
@@ -74,19 +50,6 @@ tasks.withType<ProcessResources> {
 }
 
 
-////// Dev server
-//task devServer(type: JavaExec) {
-//    dependsOn "compileKotlin"
-//
-//    classpath = project.files(
-//            configurations.runtimeClasspath,
-//            new File(project.buildDir, "classes/kotlin/main"),
-//            new File(project.buildDir, "dev-resources")
-//    )
-//}
-///////////////
-
-
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
@@ -94,34 +57,12 @@ tasks.withType<KotlinCompile> {
     }
 }
 
-//compileKotlin {
-//    targetCompatibility = javaVersion
-//    sourceCompatibility = javaVersion
-//    kotlinOptions {
-//        freeCompilerArgs = ["-Xjsr305=strict"]
-//        jvmTarget = javaVersion
-//    }
-//}
-//compileTestKotlin {
-//    kotlinOptions {
-//        freeCompilerArgs = ["-Xjsr305=strict"]
-//        jvmTarget = javaVersion
-//    }
-//}
 
-
-//jar {
-//    enabled = true
-//}
-//bootJar {
-//    classifier = 'boot'
-//}
 tasks.getByName<Jar>("jar") {
     enabled = true
 }
 
 tasks.getByName<BootJar>("bootJar") {
-//    classifier = "boot"
     archiveClassifier.set("boot")
 }
 

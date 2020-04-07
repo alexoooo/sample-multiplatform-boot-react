@@ -53,7 +53,7 @@ class ApplicationComponent : RComponent<ApplicationProps, ApplicationState>() {
             css {
                 +ApplicationStyles.wrapper
             }
-            +"1234"
+            +"test 42"
         }
     }
 }

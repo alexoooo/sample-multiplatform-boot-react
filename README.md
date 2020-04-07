@@ -7,11 +7,18 @@
 - Auto-reload in browser for development
 
 
-# Run application
-- `gradlew -t :proj-js:run` will run development application at https://localhost:8080 with live reload:
-  - Run from IDE: --server.port=8081 to start https://localhost:8081
-  - Webpack dev server will be started at the front https://localhost:8080            
-  - Webpack dev server will call server for everything expect `*.js` files.     
+# Package and run application
+- `gradlew build`
+- `java -jar proj-jvm/build/libs/proj-jvm-*-boot.jar` 
+
+# Develop application
+1) Run from IDE: --server.port=8081
+    to start https://localhost:8081
+    
+2) Run from terminal: `gradlew -t :proj-js:run`
+    to run client proxy at https://localhost:8080 with live reload
+    - Web UI JavaScript will be provided by webP12ack          
+    - Everything expect `*.js` files is served by port 8081
 
 
 # See also 
