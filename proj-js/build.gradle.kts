@@ -25,7 +25,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-js")
 
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:$kotlinx_serialization_version")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.2.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.3.5")
 
     implementation(project(":proj-common"))
 

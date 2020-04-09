@@ -24,6 +24,7 @@ val kotlin_version = "pre.94-kotlin-1.3.70" // for kotlin-wrappers
 val logback_version = "1.2.3"
 val kotlinx_serialization_version = "0.20.0"
 
+
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("ch.qos.logback:logback-classic:$logback_version")
@@ -37,6 +38,7 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
 }
+
 
 tasks.withType<ProcessResources> {
     val jsProject = project(":proj-js")
