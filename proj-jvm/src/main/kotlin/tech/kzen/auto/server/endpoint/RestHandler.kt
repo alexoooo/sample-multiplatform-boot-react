@@ -30,6 +30,7 @@ class RestHandler {
         val allowedExtensions = listOf(
             "html",
             "js",
+            "map",
             cssExtension,
             "svg",
             "png",

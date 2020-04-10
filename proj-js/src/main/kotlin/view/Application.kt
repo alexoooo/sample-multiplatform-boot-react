@@ -53,7 +53,16 @@ class ApplicationComponent : RComponent<ApplicationProps, ApplicationState>() {
             css {
                 +ApplicationStyles.wrapper
             }
-            +"test 42"
+
+            +"test 222222"
+
+            child(CounterComponent::class) {}
+
+            child(CounterComponent::class) {}
+
+            child(CounterComponent::class) {}
+
+//            child(CounterComponent::class) {}
         }
     }
 }
