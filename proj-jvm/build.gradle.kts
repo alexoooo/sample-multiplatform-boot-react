@@ -31,15 +31,13 @@ dependencies {
 
 tasks.withType<ProcessResources> {
     val jsProject = project(":proj-js")
-//    println("^^^^ ProcessResources - " + jsProject.tasks.asMap.keys)
-
     val task = jsProject.tasks.getByName("browserProductionWebpack") as KotlinWebpack
 
     from(task.destinationDirectory!!) {
         into("public")
     }
 
-    dependsOn(project(":proj-js").tasks.getByName("browserProductionWebpack"))
+    dependsOn(task)
 }
 
 
