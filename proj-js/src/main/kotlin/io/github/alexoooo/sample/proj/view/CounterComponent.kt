@@ -1,4 +1,4 @@
-package view
+package io.github.alexoooo.sample.proj.view
 
 import kotlinx.html.js.onClickFunction
 import org.w3c.dom.events.Event

@@ -6,7 +6,19 @@ plugins {
 kotlin {
     target {
         useCommonJs()
-        browser()
+        browser {
+            // TODO: figure out keep("io.github.alexoooo.sample.**") pattern
+            dceTask {
+                // https://stackoverflow.com/questions/60581223/dcetask-keep-is-not-preserving-defined-classes
+//                keep("lib-lib-js.io.github.alexoooo.sample.lib.model.CommonModel")
+//                keep("proj-js.io.github.alexoooo.sample.proj.model.ProjJsTestModel")
+//                keep("proj-proj-js.io.github.alexoooo.sample.proj.model.ProjJsTestModel")
+//                keep("proj-js.js_io.github.alexoooo.sample.proj.model.ProjJsTestModel")
+                dceOptions {
+                    devMode = true
+                }
+            }
+        }
     }
 }
 

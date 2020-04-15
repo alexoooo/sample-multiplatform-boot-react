@@ -1,9 +1,11 @@
+package io.github.alexoooo.sample.proj
+
 import io.github.alexoooo.sample.lib.ModuleRegistry
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import react.buildElement
 import react.dom.render
-import view.ApplicationComponent
+import io.github.alexoooo.sample.proj.view.ApplicationComponent
 import kotlin.browser.document
 import kotlin.coroutines.CoroutineContext
 
@@ -25,6 +27,8 @@ private class Application : CoroutineScope {
 
 fun main() {
     ModuleRegistry.add(js("require('lib-lib-common')"))
+    ModuleRegistry.add(js("require('proj-proj-common')"))
+    ModuleRegistry.add(js("require('proj-proj-js')"))
 
     GlobalStyles.inject()
 

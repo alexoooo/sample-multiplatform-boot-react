@@ -1,9 +1,7 @@
-package view
+package io.github.alexoooo.sample.proj.view
 
 import io.github.alexoooo.sample.lib.ClassName
 import io.github.alexoooo.sample.lib.Mirror
-import io.github.alexoooo.sample.lib.PersistentList
-import io.github.alexoooo.sample.lib.persistentListOf
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.css.*
 import react.*
@@ -59,11 +57,15 @@ class ApplicationComponent : RComponent<ApplicationProps, ApplicationState>() {
                 +ApplicationStyles.wrapper
             }
 
-            val sampleModelClass = ClassName(
+            val commonModelClass = ClassName(
                 "io.github.alexoooo.sample.lib.model.CommonModel")
-            val sampleModelExists = Mirror.contains(sampleModelClass)
+            val commonModelExists = Mirror.contains(commonModelClass)
 
-            +"test: $sampleModelExists"
+            val projJsMainModelClass = ClassName(
+                "io.github.alexoooo.sample.proj.model.ProjJsMainModel")
+            val projJsMainModelExists = Mirror.contains(projJsMainModelClass)
+
+            +"test 123: $commonModelExists - $projJsMainModelExists"
 
             child(CounterComponent::class) {}
 

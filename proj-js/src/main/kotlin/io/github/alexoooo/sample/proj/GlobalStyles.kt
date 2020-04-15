@@ -1,6 +1,9 @@
+package io.github.alexoooo.sample.proj
+
 import kotlinext.js.invoke
 import kotlinx.css.*
 import styled.StyledComponents
+
 
 object GlobalStyles {
     fun inject() {
