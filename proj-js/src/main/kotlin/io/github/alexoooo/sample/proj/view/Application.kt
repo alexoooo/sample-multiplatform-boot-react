@@ -65,7 +65,7 @@ class ApplicationComponent : RComponent<ApplicationProps, ApplicationState>() {
                 "io.github.alexoooo.sample.proj.model.ProjJsMainModel")
             val projJsMainModelExists = Mirror.contains(projJsMainModelClass)
 
-            +"test 123: $commonModelExists - $projJsMainModelExists"
+            +"test hello: $commonModelExists - $projJsMainModelExists"
 
             child(CounterComponent::class) {}
 

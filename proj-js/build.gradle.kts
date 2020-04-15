@@ -6,10 +6,15 @@ plugins {
 kotlin {
     target {
         useCommonJs()
+
+//        produceExecutable()
+
         browser {
             // TODO: figure out keep("io.github.alexoooo.sample.**") pattern
             dceTask {
                 // https://stackoverflow.com/questions/60581223/dcetask-keep-is-not-preserving-defined-classes
+                // https://kotlinlang.org/docs/reference/javascript-dce.html
+                // https://github.com/JetBrains/kotlin/blob/ce2ae58ffb1e9a4e54c4b4aa8ec29298a1113be1/libraries/tools/kotlin-gradle-plugin/src/main/kotlin/org/jetbrains/kotlin/gradle/tasks/KotlinJsDce.kt
 //                keep("lib-lib-js.io.github.alexoooo.sample.lib.model.CommonModel")
 //                keep("proj-js.io.github.alexoooo.sample.proj.model.ProjJsTestModel")
 //                keep("proj-proj-js.io.github.alexoooo.sample.proj.model.ProjJsTestModel")
@@ -32,17 +37,17 @@ dependencies {
     implementation(project(":proj-common"))
 
     implementation(npm("core-js", coreJsVersion))
-    implementation("org.jetbrains.kotlinx:kotlinx-html:0.6.12")
-    implementation("org.jetbrains:kotlin-react:16.13.0-$wrapperKotlinVersion")
-    implementation("org.jetbrains:kotlin-react-dom:16.13.0-$wrapperKotlinVersion")
-    implementation("org.jetbrains:kotlin-styled:1.0.0-$wrapperKotlinVersion")
-    implementation("org.jetbrains:kotlin-extensions:1.0.1-$wrapperKotlinVersion")
-    implementation("org.jetbrains:kotlin-css-js:1.0.0-$wrapperKotlinVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-html-assembly:$kotlinxHtmlVersion")
+    implementation("org.jetbrains:kotlin-react:$kotlinxReactVersion")
+    implementation("org.jetbrains:kotlin-react-dom:$kotlinxReactDomVersion")
+    implementation("org.jetbrains:kotlin-styled:$kotlinxStyledVersion")
+    implementation("org.jetbrains:kotlin-extensions:$kotlinxExtensionsVersion")
+    implementation("org.jetbrains:kotlin-css-js:$kotlinxCssVersion")
     implementation(npm("react", reactVersion))
     implementation(npm("react-dom", reactVersion))
     implementation(npm("react-is", reactVersion))
-    implementation(npm("inline-style-prefixer", "5.1.0"))
-    implementation(npm("styled-components", "4.3.2"))
+    implementation(npm("inline-style-prefixer", inlineStylePrefixerVersion))
+    implementation(npm("styled-components", styledComponentsVersion))
     testImplementation("org.jetbrains.kotlin:kotlin-test-js")
     testImplementation(npm("enzyme", "3.9.0"))
     testImplementation(npm("enzyme-adapter-react-16", "1.12.1"))

@@ -4,10 +4,9 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
 
 
 plugins {
-    id("org.springframework.boot") version "2.2.6.RELEASE"
-    id("io.spring.dependency-management") version "1.0.9.RELEASE"
+    id("org.springframework.boot") version springBootVersion
+    id("io.spring.dependency-management") version dependencyManagementVersion
     kotlin("jvm")
-//    kotlin("plugin.spring") version "1.3.71"
     kotlin("plugin.spring") version kotlinVersion
 }
 
@@ -32,6 +31,8 @@ dependencies {
 
 tasks.withType<ProcessResources> {
     val jsProject = project(":proj-js")
+//    println("^^^^ ProcessResources - " + jsProject.tasks.asMap.keys)
+
     val task = jsProject.tasks.getByName("browserProductionWebpack") as KotlinWebpack
 
     from(task.destinationDirectory!!) {

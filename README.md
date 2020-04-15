@@ -22,4 +22,4 @@
 
 
 # See also 
-- https://github.com/Kotlin/kotlin-fullstack-sample
+- https://github.com/Kotlin/kotlin-full-stack-application-demo
