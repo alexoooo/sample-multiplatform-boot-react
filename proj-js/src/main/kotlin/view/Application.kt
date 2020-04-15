@@ -1,5 +1,7 @@
 package view
 
+import io.github.alexoooo.sample.lib.PersistentList
+import io.github.alexoooo.sample.lib.persistentListOf
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.css.*
 import react.*
@@ -8,6 +10,7 @@ import styled.StyleSheet
 import styled.css
 import styled.styledA
 import styled.styledDiv
+
 
 private object ApplicationStyles : StyleSheet("ApplicationStyles", isStatic = true) {
     val wrapper by css {
@@ -54,15 +57,15 @@ class ApplicationComponent : RComponent<ApplicationProps, ApplicationState>() {
                 +ApplicationStyles.wrapper
             }
 
-            +"test 222222"
+            val list = persistentListOf("foo", "bar")
+
+            +"test hello"
 
             child(CounterComponent::class) {}
 
             child(CounterComponent::class) {}
 
             child(CounterComponent::class) {}
-
-//            child(CounterComponent::class) {}
         }
     }
 }

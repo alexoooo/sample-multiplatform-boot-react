@@ -6,7 +6,7 @@ import react.*
 import react.dom.div
 
 
-class CounterComponent: RComponent<RProps, CounterComponent.State>() {
+class CounterComponent: RPureComponent<RProps, CounterComponent.State>() {
     class State: RState {
         var count = 0
     }
