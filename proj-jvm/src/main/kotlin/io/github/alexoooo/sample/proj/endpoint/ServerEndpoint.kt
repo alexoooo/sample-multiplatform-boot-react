@@ -1,6 +1,5 @@
-package tech.kzen.auto.server.endpoint
+package io.github.alexoooo.sample.proj.endpoint
 
-import FAKE_JSON_URL
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.reactive.function.server.router

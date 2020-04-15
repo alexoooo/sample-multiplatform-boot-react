@@ -1,3 +1,4 @@
+import io.github.alexoooo.sample.lib.ModuleRegistry
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import react.buildElement
@@ -21,7 +22,10 @@ private class Application : CoroutineScope {
     }
 }
 
+
 fun main() {
+    ModuleRegistry.add(js("require('lib-lib-common')"))
+
     GlobalStyles.inject()
 
     Application().start()

@@ -1,5 +1,7 @@
 package view
 
+import io.github.alexoooo.sample.lib.ClassName
+import io.github.alexoooo.sample.lib.Mirror
 import io.github.alexoooo.sample.lib.PersistentList
 import io.github.alexoooo.sample.lib.persistentListOf
 import kotlinx.coroutines.CoroutineScope
@@ -57,9 +59,11 @@ class ApplicationComponent : RComponent<ApplicationProps, ApplicationState>() {
                 +ApplicationStyles.wrapper
             }
 
-            val list = persistentListOf("foo", "bar")
+            val sampleModelClass = ClassName(
+                "io.github.alexoooo.sample.lib.model.CommonModel")
+            val sampleModelExists = Mirror.contains(sampleModelClass)
 
-            +"test hello"
+            +"test: $sampleModelExists"
 
             child(CounterComponent::class) {}
 

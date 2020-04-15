@@ -1,4 +1,4 @@
-package tech.kzen.auto.server.endpoint
+package io.github.alexoooo.sample.proj.endpoint
 
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Component
@@ -6,7 +6,6 @@ import org.springframework.web.reactive.function.server.ServerRequest
 import org.springframework.web.reactive.function.server.ServerResponse
 import org.springframework.web.reactive.function.server.body
 import reactor.core.publisher.Mono
-import java.io.IOException
 import java.net.URI
 import java.net.URL
 import java.nio.file.Files
@@ -23,7 +22,8 @@ class RestHandler {
             URI("classpath:/public/")
         )
 
-        val resourceDirectories = discoverResourceDirectories()
+        val resourceDirectories =
+            discoverResourceDirectories()
 
         private const val cssExtension = "css"
 
