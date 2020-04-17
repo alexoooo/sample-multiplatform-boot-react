@@ -26,6 +26,8 @@ dependencies {
 
     implementation("io.github.alexoooo.sample.lib:lib-common-jvm:$libVersion")
     implementation("io.github.alexoooo.sample.lib:lib-jvm:$libVersion")
+
+    implementation("com.github.andrewoma.dexx:collection:$dexxVersion")
 }
 
 

@@ -1,10 +1,9 @@
 package io.github.alexoooo.sample.proj.view
 
-import io.github.alexoooo.sample.lib.ClassName
-import io.github.alexoooo.sample.lib.Mirror
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.css.*
 import react.*
+import react.dom.br
 import react.dom.div
 import styled.StyleSheet
 import styled.css
@@ -22,22 +21,28 @@ private object ApplicationStyles : StyleSheet("ApplicationStyles", isStatic = tr
     }
 }
 
+
 interface ApplicationProps : RProps {
     var coroutineScope: CoroutineScope
 }
 
+
 class ApplicationState : RState {
-//    var postWithComments: List<PostWithComments> = emptyList()
-//    var users: List<User> = emptyList()
+    var ticTacToeState: TicTacToeState = TicTacToeState.empty
 }
 
-class ApplicationComponent : RComponent<ApplicationProps, ApplicationState>() {
+
+class ApplicationComponent : RPureComponent<ApplicationProps, ApplicationState>() {
     init {
         state = ApplicationState()
     }
 
-    private val coroutineContext
-        get() = props.coroutineScope.coroutineContext
+
+    private fun handleClick(row: Int, col: Int) {
+        setState {
+            ticTacToeState = ticTacToeState.play(row, col)
+        }
+    }
 
 
     override fun RBuilder.render() {
@@ -57,21 +62,27 @@ class ApplicationComponent : RComponent<ApplicationProps, ApplicationState>() {
                 +ApplicationStyles.wrapper
             }
 
-            val commonModelClass = ClassName(
-                "io.github.alexoooo.sample.lib.model.CommonModel")
-            val commonModelExists = Mirror.contains(commonModelClass)
+            +"Next: ${state.ticTacToeState.next}"
+            br {}
 
-            val projJsMainModelClass = ClassName(
-                "io.github.alexoooo.sample.proj.model.ProjJsMainModel")
-            val projJsMainModelExists = Mirror.contains(projJsMainModelClass)
+            for (row in 0 .. 2) {
+                for (col in 0 .. 2) {
+                    child(TicTacToeCell::class) {
+                        key = "$row/$col"
 
-            +"test hello: $commonModelExists - $projJsMainModelExists"
+                        attrs {
+                            this.ticTacToeState = state.ticTacToeState
+                            this.row = row
+                            this.col = col
 
-            child(CounterComponent::class) {}
-
-            child(CounterComponent::class) {}
-
-            child(CounterComponent::class) {}
+                            onClick = {
+                                handleClick(row, col)
+                            }
+                        }
+                    }
+                }
+                br {}
+            }
         }
     }
 }
