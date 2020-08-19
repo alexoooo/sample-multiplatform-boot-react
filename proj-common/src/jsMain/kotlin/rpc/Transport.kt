@@ -8,7 +8,7 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.list
 import org.w3c.fetch.RequestCredentials
 import org.w3c.fetch.RequestInit
-import kotlin.browser.window
+import kotlinx.browser.window
 import kotlin.coroutines.CoroutineContext
 import kotlin.js.json
 

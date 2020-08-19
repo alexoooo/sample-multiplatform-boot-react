@@ -61,3 +61,8 @@ run {
 //        dependsOn project(":proj-jvm").tasks.getByName('prepareDevServer')
 //    }
 }
+
+
+//tasks.getByName("processDceKotlinJs") {
+//    enabled = false
+//}

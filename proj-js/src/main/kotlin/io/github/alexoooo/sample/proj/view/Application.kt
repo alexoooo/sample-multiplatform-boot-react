@@ -1,5 +1,8 @@
 package io.github.alexoooo.sample.proj.view
 
+import io.github.alexoooo.sample.lib.ClassName
+import io.github.alexoooo.sample.lib.Mirror
+import io.github.alexoooo.sample.lib.model.CommonModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.css.*
 import react.*
@@ -53,7 +56,15 @@ class ApplicationComponent : RPureComponent<ApplicationProps, ApplicationState>(
                         paddingLeft = 48.px
                     }
                 }
-                +"hello world!!!"
+
+                val commonModelClass = ClassName(
+                    "io.github.alexoooo.sample.lib.model.CommonModel")
+
+                val contains = Mirror.contains(commonModelClass)
+                val constructorArgs = Mirror.constructorArgumentNames(commonModelClass)
+                val sampleModel = Mirror.create(commonModelClass, listOf("foo", 42.0))
+
+                +"hello world!!! - $contains - $constructorArgs - $sampleModel"
             }
         }
 
@@ -62,7 +73,7 @@ class ApplicationComponent : RPureComponent<ApplicationProps, ApplicationState>(
                 +ApplicationStyles.wrapper
             }
 
-            +"Next: ${state.ticTacToeState.next}"
+            +"Next player: ${state.ticTacToeState.next}"
             br {}
 
             for (row in 0 .. 2) {

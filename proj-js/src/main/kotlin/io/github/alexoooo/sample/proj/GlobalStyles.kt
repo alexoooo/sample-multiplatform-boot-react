@@ -2,7 +2,7 @@ package io.github.alexoooo.sample.proj
 
 import kotlinext.js.invoke
 import kotlinx.css.*
-import styled.StyledComponents
+import styled.createGlobalStyle
 
 
 object GlobalStyles {
@@ -14,6 +14,6 @@ object GlobalStyles {
             }
         }
 
-        StyledComponents.createGlobalStyle(styles.toString())
+        createGlobalStyle(styles.toString())
     }
 }

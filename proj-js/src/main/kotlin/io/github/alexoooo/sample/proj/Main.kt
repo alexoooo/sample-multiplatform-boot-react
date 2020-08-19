@@ -6,7 +6,7 @@ import kotlinx.coroutines.Job
 import react.buildElement
 import react.dom.render
 import io.github.alexoooo.sample.proj.view.ApplicationComponent
-import kotlin.browser.document
+import kotlinx.browser.document
 import kotlin.coroutines.CoroutineContext
 
 

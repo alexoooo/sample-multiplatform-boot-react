@@ -13,7 +13,7 @@
 
 # Develop application
 1) Run from IDE: --server.port=8081
-    to start https://ltest helloocalhost:8081
+    to start https://localhost:8081
     
 2) Run from terminal: `gradlew -t :proj-js:run`
     to run client proxy at https://localhost:8080 with live reload
