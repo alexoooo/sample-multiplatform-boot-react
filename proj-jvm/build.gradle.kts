@@ -12,7 +12,6 @@ plugins {
 
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
     implementation("org.jetbrains:kotlin-css-jvm:1.0.0-$wrapperKotlinVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serializationVersion")
