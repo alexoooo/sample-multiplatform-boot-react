@@ -28,6 +28,8 @@ kotlin {
                 implementation("org.jetbrains:kotlin-css:$kotlinxCssVersion")
 //                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$serializationVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
+
+                implementation("io.github.alexoooo.sample.lib:lib-common:$libVersion")
             }
         }
 

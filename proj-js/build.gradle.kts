@@ -4,7 +4,8 @@ plugins {
 
 
 kotlin {
-    target {
+//    target {
+    js {
         useCommonJs()
 
 //        produceExecutable()
