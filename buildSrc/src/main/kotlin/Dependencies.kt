@@ -7,8 +7,8 @@ const val dependencyManagementVersion = "1.0.9.RELEASE"
 const val coroutinesVersion = "1.3.9"
 //const val coroutinesVersion = "1.3.5"
 
-const val serializationVersion = "0.20.0"
-//const val serializationVersion = "0.20.0-$kotlinVersion"
+//const val serializationVersion = "0.20.0"
+const val serializationVersion = "1.0.0-RC"
 
 //const val wrapperKotlinVersion = "pre.111-kotlin-1.4.0"
 const val wrapperKotlinVersion = "pre.116-kotlin-1.4.10"

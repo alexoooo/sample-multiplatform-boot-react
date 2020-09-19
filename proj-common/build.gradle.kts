@@ -26,7 +26,8 @@ kotlin {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
                 implementation("org.jetbrains:kotlin-css:$kotlinxCssVersion")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$serializationVersion")
+//                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$serializationVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
             }
         }
 
@@ -44,7 +45,8 @@ kotlin {
             dependencies {
                 implementation("ch.qos.logback:logback-classic:$logbackVersion")
                 implementation("org.jetbrains:kotlin-css-jvm:$kotlinxCssVersion")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serializationVersion")
+//                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serializationVersion")
+//                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation("io.github.alexoooo.sample.lib:lib-common-jvm:$libVersion")
             }
         }
@@ -61,7 +63,11 @@ kotlin {
         @Suppress("UNUSED_VARIABLE")
         val jsMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:$serializationVersion")
+                // NB: seems to be required for IntelliJ IDEA 2020.2.2, but compiles from gradle without it
+                implementation(kotlin("stdlib-js"))
+
+//                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:$serializationVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation("io.github.alexoooo.sample.lib:lib-common-js:$libVersion")
                 implementation(npm("immutable", immutaleJsVersion))
             }

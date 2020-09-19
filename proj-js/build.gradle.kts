@@ -29,7 +29,7 @@ kotlin {
 
 
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:$serializationVersion")
+//    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:$serializationVersion")
 
     implementation(project(":proj-common"))
 

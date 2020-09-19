@@ -1,12 +1,10 @@
 package rpc
 
-//import kotlin.browser.window
 import kotlinx.browser.window
 import kotlinx.coroutines.await
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.KSerializer
-import kotlinx.serialization.builtins.list
-import kotlinx.serialization.json.Json
+import kotlinx.serialization.builtins.ListSerializer
 import org.w3c.fetch.RequestInit
 import kotlin.coroutines.CoroutineContext
 import kotlin.js.json
@@ -26,7 +24,9 @@ class Transport(private val coroutineContext: CoroutineContext) {
         deserializationStrategy: KSerializer<T>,
         vararg args: Pair<String, Any>
     ): T {
-        return Json.parse(deserializationStrategy, fetch(url, *args))
+//        return parse(deserializationStrategy, fetch(url, *args))
+        return kotlinx.serialization.json.Json.decodeFromString(
+            deserializationStrategy, fetch(url, *args))
     }
 
     internal suspend fun <T> getList(
@@ -34,7 +34,9 @@ class Transport(private val coroutineContext: CoroutineContext) {
         deserializationStrategy: KSerializer<T>,
         vararg args: Pair<String, Any>
     ): List<T> {
-        return Json.parse(deserializationStrategy.list, fetch(url, *args))
+//        return Json.parse(deserializationStrategy.list, fetch(url, *args))
+        return kotlinx.serialization.json.Json.decodeFromString(
+            ListSerializer(deserializationStrategy), fetch(url, *args))
     }
 
     private suspend fun fetch(method: String, vararg args: Pair<String, Any>): String {
