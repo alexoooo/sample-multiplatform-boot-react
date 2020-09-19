@@ -1,10 +1,10 @@
 import contrib.enzyme.*
-import kotlinx.coroutines.*
-import react.RBuilder
-import react.buildElements
 import kotlinx.browser.document
 import kotlinx.browser.window
+import kotlinx.coroutines.*
 import kotlinx.dom.appendText
+import react.RBuilder
+import react.buildElements
 import kotlin.test.assertEquals
 
 val ReactDOM = kotlinext.js.require("react-dom")

@@ -1,7 +1,10 @@
 package io.github.alexoooo.sample.proj.view
 
 import kotlinx.html.js.onClickFunction
-import react.*
+import react.RBuilder
+import react.RProps
+import react.RPureComponent
+import react.RState
 import react.dom.span
 
 

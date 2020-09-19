@@ -1,19 +1,20 @@
 package rpc
 
+//import kotlin.browser.window
+import kotlinx.browser.window
 import kotlinx.coroutines.await
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.builtins.list
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.list
-import org.w3c.fetch.RequestCredentials
 import org.w3c.fetch.RequestInit
-import kotlinx.browser.window
 import kotlin.coroutines.CoroutineContext
 import kotlin.js.json
 
+
 @JsName("encodeURIComponent")
 external fun urlEncode(value: String): String
+
 
 @JsName("decodeURIComponent")
 external fun urlDecode(encoded: String): String

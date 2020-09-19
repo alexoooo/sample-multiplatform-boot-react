@@ -4,9 +4,12 @@ plugins {
 }
 
 allprojects {
+    group = "io.github.alexoooo.sample.proj"
     version = "0.3.0-SNAPSHOT"
 
     repositories {
+        mavenLocal()
+
         maven { setUrl("https://dl.bintray.com/kotlin/kotlin-dev") }
         maven { setUrl("https://dl.bintray.com/kotlin/kotlin-eap") }
         jcenter()

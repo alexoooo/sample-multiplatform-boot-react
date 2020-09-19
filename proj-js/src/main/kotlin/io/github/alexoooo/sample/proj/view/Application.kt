@@ -2,9 +2,11 @@ package io.github.alexoooo.sample.proj.view
 
 import io.github.alexoooo.sample.lib.ClassName
 import io.github.alexoooo.sample.lib.Mirror
-import io.github.alexoooo.sample.lib.model.CommonModel
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.css.*
+import kotlinx.css.marginBottom
+import kotlinx.css.padding
+import kotlinx.css.paddingLeft
+import kotlinx.css.px
 import react.*
 import react.dom.br
 import react.dom.div

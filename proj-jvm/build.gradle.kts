@@ -1,6 +1,6 @@
+import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
 
 
 plugins {
@@ -34,7 +34,7 @@ tasks.withType<ProcessResources> {
     val jsProject = project(":proj-js")
     val task = jsProject.tasks.getByName("browserProductionWebpack") as KotlinWebpack
 
-    from(task.destinationDirectory!!) {
+    from(task.destinationDirectory) {
         into("public")
     }
 
@@ -45,7 +45,7 @@ tasks.withType<ProcessResources> {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "11"
+        jvmTarget = "13"
     }
 }
 

@@ -1,12 +1,12 @@
 package io.github.alexoooo.sample.proj
 
 import io.github.alexoooo.sample.lib.ModuleRegistry
+import io.github.alexoooo.sample.proj.view.ApplicationComponent
+import kotlinx.browser.document
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import react.buildElement
 import react.dom.render
-import io.github.alexoooo.sample.proj.view.ApplicationComponent
-import kotlinx.browser.document
 import kotlin.coroutines.CoroutineContext
 
 
