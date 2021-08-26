@@ -25,9 +25,9 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
-                implementation("org.jetbrains:kotlin-css:$kotlinxCssVersion")
-//                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$serializationVersion")
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-css:$kotlinCssVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
 
                 implementation("io.github.alexoooo.sample.lib:lib-common:$libVersion")
             }
@@ -46,7 +46,7 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 implementation("ch.qos.logback:logback-classic:$logbackVersion")
-                implementation("org.jetbrains:kotlin-css-jvm:$kotlinxCssVersion")
+//                implementation("org.jetbrains.kotlin-wrappers:kotlin-css-jvm:$kotlinxCssVersion")
 //                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serializationVersion")
 //                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation("io.github.alexoooo.sample.lib:lib-common-jvm:$libVersion")

@@ -1,15 +1,13 @@
 package io.github.alexoooo.sample.proj.view
 
 import kotlinx.html.js.onClickFunction
-import react.RBuilder
-import react.RProps
-import react.RPureComponent
-import react.RState
+import react.*
+import react.dom.attrs
 import react.dom.span
 
 
-class TicTacToeCell : RPureComponent<TicTacToeCell.Props, RState>() {
-    interface Props : RProps {
+class TicTacToeCell : RPureComponent<TicTacToeCell.Props, State>() {
+    interface Props : PropsWithChildren {
         var row: Int
         var col: Int
         var ticTacToeState: TicTacToeState
