@@ -7,7 +7,7 @@ import react.dom.span
 
 
 class TicTacToeCell : RPureComponent<TicTacToeCell.Props, State>() {
-    interface Props : PropsWithChildren {
+    interface Props : react.Props {
         var row: Int
         var col: Int
         var ticTacToeState: TicTacToeState

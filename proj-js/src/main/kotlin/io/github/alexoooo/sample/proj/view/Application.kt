@@ -27,12 +27,12 @@ private object ApplicationStyles : StyleSheet("ApplicationStyles", isStatic = tr
 }
 
 
-interface ApplicationProps : RProps {
+interface ApplicationProps : Props {
     var coroutineScope: CoroutineScope
 }
 
 
-class ApplicationState : RState {
+class ApplicationState : State {
     var ticTacToeState: TicTacToeState = TicTacToeState.empty
 }
 
@@ -59,14 +59,15 @@ class ApplicationComponent : RPureComponent<ApplicationProps, ApplicationState>(
                     }
                 }
 
-                val commonModelClass = ClassName(
-                    "io.github.alexoooo.sample.lib.model.CommonModel")
-
-                val contains = Mirror.contains(commonModelClass)
-                val constructorArgs = Mirror.constructorArgumentNames(commonModelClass)
-                val sampleModel = Mirror.create(commonModelClass, listOf("foo", 42.0))
-
-                +"hello world!!! - $contains - $constructorArgs - $sampleModel"
+//                val commonModelClass = ClassName(
+//                    "io.github.alexoooo.sample.lib.model.CommonModel")
+//
+//                val contains = Mirror.contains(commonModelClass)
+//                val constructorArgs = Mirror.constructorArgumentNames(commonModelClass)
+//                val sampleModel = Mirror.create(commonModelClass, listOf("foo", 42.0))
+//
+//                +"hello world!!! - $contains - $constructorArgs - $sampleModel"
+                +"Hello, world!"
             }
         }
 
