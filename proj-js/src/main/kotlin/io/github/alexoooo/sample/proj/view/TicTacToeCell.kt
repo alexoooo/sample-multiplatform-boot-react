@@ -25,7 +25,7 @@ class TicTacToeCell : RPureComponent<TicTacToeCell.Props, State>() {
                 }
             }
 
-            +"[${player.display}]"
+            +"[${player.display}] !!"
         }
     }
 }

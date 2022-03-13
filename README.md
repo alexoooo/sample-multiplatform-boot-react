@@ -15,7 +15,7 @@
 1) Run from IDE: --server.port=8081
     to start https://localhost:8081
     
-2) Run from terminal: `gradlew -t :proj-js:run`
+2) Run from terminal: `./gradlew -t :proj-js:run`
     to run client proxy at https://localhost:8080 with live reload
     - Web UI JavaScript will be provided by webP12ack          
     - Everything expect `*.js` files is served by port 8081

@@ -1,7 +1,5 @@
 package io.github.alexoooo.sample.proj.view
 
-import io.github.alexoooo.sample.lib.ClassName
-import io.github.alexoooo.sample.lib.Mirror
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.css.marginBottom
 import kotlinx.css.padding
@@ -59,14 +57,6 @@ class ApplicationComponent : RPureComponent<ApplicationProps, ApplicationState>(
                     }
                 }
 
-//                val commonModelClass = ClassName(
-//                    "io.github.alexoooo.sample.lib.model.CommonModel")
-//
-//                val contains = Mirror.contains(commonModelClass)
-//                val constructorArgs = Mirror.constructorArgumentNames(commonModelClass)
-//                val sampleModel = Mirror.create(commonModelClass, listOf("foo", 42.0))
-//
-//                +"hello world!!! - $contains - $constructorArgs - $sampleModel"
                 +"Hello, world!"
             }
         }

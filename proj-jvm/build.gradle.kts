@@ -11,6 +11,13 @@ plugins {
 }
 
 
+kotlin {
+    jvmToolchain {
+        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(jvmToolchainVersion))
+    }
+}
+
+
 dependencies {
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
     implementation("org.jetbrains.kotlin-wrappers:kotlin-css-jvm:1.0.0-$wrapperKotlinVersion")
@@ -50,6 +57,9 @@ tasks.withType<KotlinCompile> {
     }
 }
 
+tasks.compileJava {
+    options.release.set(javaVersion)
+}
 
 tasks.getByName<Jar>("jar") {
     enabled = true
