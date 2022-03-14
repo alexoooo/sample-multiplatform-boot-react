@@ -15,11 +15,11 @@ private class Application : CoroutineScope {
 
     fun start() {
         document.getElementById("react-app")?.let {
-            render(buildElement {
+            render(it) {
                 child(ApplicationComponent::class) {
                     attrs.coroutineScope = this@Application
                 }
-            }, it)
+            }
         }
     }
 }
