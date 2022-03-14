@@ -1,9 +1,12 @@
 package io.github.alexoooo.sample.proj.view
 
-import kotlinx.html.js.onClickFunction
-import react.*
-import react.dom.attrs
-import react.dom.span
+import io.github.alexoooo.sample.proj.wrap.CloseIcon
+import io.github.alexoooo.sample.proj.wrap.MaterialIconButton
+import io.github.alexoooo.sample.proj.wrap.PanoramaFishEyeIcon
+import io.github.alexoooo.sample.proj.wrap.SelectAllIcon
+import react.RBuilder
+import react.RPureComponent
+import react.State
 
 
 class TicTacToeCell : RPureComponent<TicTacToeCell.Props, State>() {
@@ -18,14 +21,24 @@ class TicTacToeCell : RPureComponent<TicTacToeCell.Props, State>() {
 
     override fun RBuilder.render() {
         val player = props.ticTacToeState.cells[props.row][props.col]
-        span {
+
+        child(MaterialIconButton::class) {
             attrs {
-                onClickFunction = {
+                onClick = {
                     props.onClick()
                 }
             }
 
-            +"[${player.display}] !!"
+            when (player) {
+                TicTacToePlayer.Blank ->
+                    child(SelectAllIcon::class) {}
+
+                TicTacToePlayer.X ->
+                    child(CloseIcon::class) {}
+
+                TicTacToePlayer.O ->
+                    child(PanoramaFishEyeIcon::class) {}
+            }
         }
     }
 }

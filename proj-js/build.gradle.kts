@@ -20,14 +20,16 @@ kotlin {
 
 
 dependencies {
-//    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:$serializationVersion")
-
     implementation(project(":proj-common"))
 
 //    implementation(npm("core-js", coreJsVersion))
 //    implementation("org.jetbrains.kotlinx:kotlinx-html-assembly:$kotlinxHtmlVersion")
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-react:$kotlinReactVersion")
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom:$kotlinReactDomVersion")
+
+//    implementation("org.jetbrains.kotlin-wrappers:kotlin-react:$kotlinReactVersion")
+    implementation("org.jetbrains.kotlin-wrappers:kotlin-react-legacy:$kotlinReactVersion")
+//    implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom:$kotlinReactDomVersion")
+    implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom-legacy:$kotlinReactDomVersion")
+
     implementation("org.jetbrains.kotlin-wrappers:kotlin-styled:$kotlinStyledVersion")
     implementation("org.jetbrains.kotlin-wrappers:kotlin-extensions:$kotlinExtensionsVersion")
     implementation("org.jetbrains.kotlin-wrappers:kotlin-css-js:$kotlinCssVersion")
@@ -40,8 +42,19 @@ dependencies {
 //    testImplementation(npm("enzyme", "3.11.0"))
 //    testImplementation(npm("enzyme-adapter-react-16", "1.12.1"))
 
+    implementation(npm("@material-ui/core", materialUiCoreVersion))
+    implementation(npm("@material-ui/icons", materialUiIconsVersion))
+    implementation(npm("@material-ui/lab", materialUiLabVersion))
+
     implementation("io.github.alexoooo.sample.lib:lib-common-js:$libVersion")
     implementation("io.github.alexoooo.sample.lib:lib-js:$libVersion")
+}
+
+
+configurations.implementation {
+//    exclude(group = "org.jetbrains.kotlin-wrappers", module = "kotlin-react-legacy")
+//    exclude(group = "org.jetbrains.kotlin-wrappers", module = "kotlin-react-dom-legacy")
+    exclude(group = "org.jetbrains.kotlin-wrappers", module = "kotlin-react-dom")
 }
 
 

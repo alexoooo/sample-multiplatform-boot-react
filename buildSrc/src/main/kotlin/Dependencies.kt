@@ -18,6 +18,10 @@ const val inlineStylePrefixerVersion = "6.0.1"
 const val styledComponentsVersion = "5.3.3"
 //const val kotlinxHtmlVersion = "0.7.3"
 
+const val materialUiCoreVersion = "4.12.3"
+const val materialUiIconsVersion = "4.11.2"
+const val materialUiLabVersion = "4.0.0-alpha.60"
+
 const val wrapperKotlinVersion = "pre.320-kotlin-1.6.10"
 //const val wrapperKotlinVersion = "pre.236-kotlin-1.5.30"
 const val kotlinReactVersion = "17.0.2-$wrapperKotlinVersion"
