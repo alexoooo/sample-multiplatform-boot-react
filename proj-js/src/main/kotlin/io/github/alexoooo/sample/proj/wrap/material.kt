@@ -1,4 +1,4 @@
-@file:JsModule("@material-ui/core")
+@file:JsModule("@mui/material")
 package io.github.alexoooo.sample.proj.wrap
 
 import org.w3c.dom.HTMLButtonElement

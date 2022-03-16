@@ -42,9 +42,14 @@ dependencies {
 //    testImplementation(npm("enzyme", "3.11.0"))
 //    testImplementation(npm("enzyme-adapter-react-16", "1.12.1"))
 
-    implementation(npm("@material-ui/core", materialUiCoreVersion))
-    implementation(npm("@material-ui/icons", materialUiIconsVersion))
-    implementation(npm("@material-ui/lab", materialUiLabVersion))
+    implementation(npm("@mui/material", muiMaterialVersion))
+    implementation(npm("@mui/icons-material", muiIconsVersion))
+    implementation(npm("@mui/styles", muiStylesVersion))
+    implementation(npm("@emotion/styled", emotionStyledVersion))
+    implementation(npm("@emotion/react", emotionReactVersion))
+//    implementation(npm("@material-ui/core", materialUiCoreVersion))
+//    implementation(npm("@material-ui/icons", materialUiIconsVersion))
+//    implementation(npm("@material-ui/lab", materialUiLabVersion))
 
     implementation("io.github.alexoooo.sample.lib:lib-common-js:$libVersion")
     implementation("io.github.alexoooo.sample.lib:lib-js:$libVersion")

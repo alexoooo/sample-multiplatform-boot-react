@@ -1,4 +1,4 @@
-@file:JsModule("@material-ui/icons")
+@file:JsModule("@mui/icons-material")
 package io.github.alexoooo.sample.proj.wrap
 
 import react.Component
