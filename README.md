@@ -17,7 +17,7 @@
     
 2) Run from terminal: `./gradlew -t :proj-js:run`
     to run client proxy at https://localhost:8080 with live reload
-    - Web UI JavaScript will be provided by webP12ack          
+    - Web UI JavaScript will be provided by Webpack          
     - Everything expect `*.js` files is served by port 8081
 
 

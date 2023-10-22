@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
@@ -13,18 +15,20 @@ plugins {
 
 kotlin {
     jvmToolchain {
-        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(jvmToolchainVersion))
+        languageVersion.set(JavaLanguageVersion.of(jvmToolchainVersion))
     }
 }
 
 
 dependencies {
-    implementation("ch.qos.logback:logback-classic:$logbackVersion")
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-css-jvm:1.0.0-$wrapperKotlinVersion")
+    implementation(project(":proj-common"))
+
+//    implementation("io.github.microutils:kotlin-logging:$kotlinLogging")
+//    implementation("ch.qos.logback:logback-classic:$logbackVersion")
+
+//    implementation("org.jetbrains.kotlin-wrappers:kotlin-css-jvm:1.0.0-$wrapperKotlinVersion")
 //    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serializationVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
-
-    implementation(project(":proj-common"))
 
     implementation("org.springframework.boot:spring-boot-starter-webflux")
 
@@ -40,13 +44,16 @@ dependencies {
 
 tasks.withType<ProcessResources> {
     val jsProject = project(":proj-js")
-    val task = jsProject.tasks.getByName("browserProductionWebpack") as KotlinWebpack
 
-    from(task.destinationDirectory) {
+    val browserDistributionTask = jsProject.tasks.getByName("jsBrowserDistribution")
+    dependsOn(browserDistributionTask)
+
+    val task = jsProject.tasks.getByName("jsBrowserProductionWebpack") as KotlinWebpack
+    dependsOn(task)
+
+    from(task.outputDirectory) {
         into("public")
     }
-
-    dependsOn(task)
 }
 
 

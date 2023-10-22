@@ -9,23 +9,22 @@ kotlin {
 
     js {
         browser {
-            testTask {
+            testTask(Action {
                 testLogging {
                     showExceptions = true
                     exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
                     showCauses = true
                     showStackTraces = true
                 }
-            }
+            })
         }
     }
 
     sourceSets {
-        @Suppress("UNUSED_VARIABLE")
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
-                implementation("org.jetbrains.kotlin-wrappers:kotlin-css:$kotlinCssVersion")
+//                implementation("org.jetbrains.kotlin-wrappers:kotlin-css:$kotlinCssVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
 
@@ -33,7 +32,6 @@ kotlin {
             }
         }
 
-        @Suppress("UNUSED_VARIABLE")
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
@@ -42,18 +40,16 @@ kotlin {
         }
 
 
-        @Suppress("UNUSED_VARIABLE")
         val jvmMain by getting {
             dependencies {
-                implementation("ch.qos.logback:logback-classic:$logbackVersion")
+                implementation("io.github.alexoooo.sample.lib:lib-common-jvm:$libVersion")
+//                implementation("ch.qos.logback:logback-classic:$logbackVersion")
 //                implementation("org.jetbrains.kotlin-wrappers:kotlin-css-jvm:$kotlinxCssVersion")
 //                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serializationVersion")
 //                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
-                implementation("io.github.alexoooo.sample.lib:lib-common-jvm:$libVersion")
             }
         }
 
-        @Suppress("UNUSED_VARIABLE")
         val jvmTest by getting {
             dependencies {
                 implementation(kotlin("test"))
@@ -62,7 +58,6 @@ kotlin {
         }
 
 
-        @Suppress("UNUSED_VARIABLE")
         val jsMain by getting {
             dependencies {
                 // NB: seems to be required for IntelliJ IDEA 2020.2.2, but compiles from gradle without it
@@ -75,7 +70,6 @@ kotlin {
             }
         }
 
-        @Suppress("UNUSED_VARIABLE")
         val jsTest by getting {
             dependencies {
                 implementation(kotlin("test-js"))
