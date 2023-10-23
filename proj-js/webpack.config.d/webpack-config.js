@@ -11,4 +11,9 @@
             }
         }
     }
+
+    // https://youtrack.jetbrains.com/issue/KT-50826
+    config.performance = {
+        hints: false
+    };
 })(config);
