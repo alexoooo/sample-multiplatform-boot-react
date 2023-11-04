@@ -7,7 +7,7 @@ plugins {
 
 allprojects {
     group = "io.github.alexoooo.sample.proj"
-    version = "0.5.0-SNAPSHOT"
+    version = "0.6.0-SNAPSHOT"
 
     repositories {
         mavenLocal()

@@ -21,10 +21,9 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting {
+        commonMain {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
-//                implementation("org.jetbrains.kotlin-wrappers:kotlin-css:$kotlinCssVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
 
@@ -32,7 +31,7 @@ kotlin {
             }
         }
 
-        val commonTest by getting {
+        commonTest {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
@@ -40,17 +39,13 @@ kotlin {
         }
 
 
-        val jvmMain by getting {
+        jvmMain {
             dependencies {
                 implementation("io.github.alexoooo.sample.lib:lib-common-jvm:$libVersion")
-//                implementation("ch.qos.logback:logback-classic:$logbackVersion")
-//                implementation("org.jetbrains.kotlin-wrappers:kotlin-css-jvm:$kotlinxCssVersion")
-//                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serializationVersion")
-//                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
             }
         }
 
-        val jvmTest by getting {
+        jvmTest {
             dependencies {
                 implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
@@ -58,19 +53,15 @@ kotlin {
         }
 
 
-        val jsMain by getting {
+        jsMain {
             dependencies {
-                // NB: seems to be required for IntelliJ IDEA 2020.2.2, but compiles from gradle without it
-                implementation(kotlin("stdlib-js"))
-
-//                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:$serializationVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation("io.github.alexoooo.sample.lib:lib-common-js:$libVersion")
                 implementation(npm("immutable", immutaleJsVersion))
             }
         }
 
-        val jsTest by getting {
+        jsTest {
             dependencies {
                 implementation(kotlin("test-js"))
             }

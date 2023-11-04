@@ -1,8 +1,8 @@
-const val kotlinVersion = "1.9.10"
-const val jvmTargetVersion = "19"
-const val javaVersion = 19
-const val jvmToolchainVersion = 19
-const val libVersion = "0.5.0-SNAPSHOT"
+const val kotlinVersion = "1.9.20"
+const val jvmTargetVersion = "20"
+const val javaVersion = 20
+const val jvmToolchainVersion = 20
+const val libVersion = "0.6.0-SNAPSHOT"
 
 const val springBootVersion = "3.1.5"
 const val dependencyManagementVersion = "1.1.3"
@@ -12,10 +12,7 @@ const val serializationVersion = "1.6.0"
 const val immutaleJsVersion = "4.3.4"
 const val dexxVersion = "0.7"
 
-const val kotlinLogging = "3.0.5"
-const val logbackVersion = "1.4.11"
-const val kotlinxHtmlAssemblyVersion = "0.8.0"
-
+//const val kotlinWrappersVersion = "1.0.0-pre.637"
 const val wrapperKotlinVersion = "pre.635"
 const val kotlinReactVersion = "18.2.0-$wrapperKotlinVersion"
 const val kotlinReactDomVersion = "18.2.0-$wrapperKotlinVersion"
